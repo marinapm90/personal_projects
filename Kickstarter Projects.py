@@ -26,9 +26,6 @@ def cleaning(my_data):
 
 def analyze(my_data, category, types, country, start, end, success):
     plot_boxplot = analysis.plot_boxplot("usd_pledged", my_data)
-
-    #plot_boxplot.savefig('../output/Plot.png')
-
     plot_bar1 = analysis.plot_bar(category)
     plot_bar2 = analysis.plot_bar(types)
     plot_scatter = analysis.plot_scatter(my_data, "duration", "usd_pledged")
@@ -44,7 +41,6 @@ def report(iter_plots):
     for ind, plotx in enumerate(iter_plots):
         print(ind, plotx)
         reporting.download_plot(plotx, ind)
-
 
 
 def main():
