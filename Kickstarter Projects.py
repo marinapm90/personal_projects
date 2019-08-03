@@ -15,10 +15,20 @@ def read_file(file):
 
 def cleaning(my_data):
     my_data = wrangling.new_column(my_data, "usd_pledged", "goal_usd")
-    return my_data
+    category = wrangling.category(my_data, 'main_category')
+    types = wrangling.types(my_data, "main_category", "goal_usd", "usd_pledged")
+    country = wrangling.country(my_data, "country")
+    start = wrangling.star(my_data, "start_month", "id")
+    end = wrangling.end(my_data, "end_month", "id")
+    success = wrangling.success(my_data, "status", "id")
+    return my_data, category, types, country, start, end, success
 
-def analyze(my_data):
+
+def analyze(my_data, category, types, country, start, end, success):
     plot_boxplot = analysis.plot_boxplot("usd_pledged", my_data)
+
+    #plot_boxplot.savefig('../output/Plot.png')
+
     plot_bar1 = analysis.plot_bar(category)
     plot_bar2 = analysis.plot_bar(types)
     plot_scatter = analysis.plot_scatter(my_data, "duration", "usd_pledged")
@@ -29,15 +39,18 @@ def analyze(my_data):
     plot_bar4 = analysis.plot_bar(success)
     return plot_boxplot, plot_bar1, plot_bar2, plot_scatter, plot_bar3, plot_line1, plot_line2, plot_hist, plot_bar4
 
-def report(plot):
 
-    plot = reporting.download_plot(plot)
-    return plot
+def report(iter_plots):
+    for ind, plotx in enumerate(iter_plots):
+        print(ind, plotx)
+        reporting.download_plot(plotx, ind)
+
+
 
 def main():
-    kickstarter = read_file('./Kickstarter_projects_Feb19.csv')
-    kickstarter_clean = cleaning(kickstarter)
-    figure = analyze(kickstarter_clean)
+    d = read_file('./input/Kickstarter_projects_Feb19.csv')
+    my_data, category, types, country, start, end, success = cleaning(d)
+    figure = analyze(my_data, category, types, country, start, end, success)
     report(figure)
 
 

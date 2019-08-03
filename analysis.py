@@ -27,3 +27,4 @@ def plot_line(df):
 def plot_hist(df, col):
     plot = df[col].hist()
     return plot
+
