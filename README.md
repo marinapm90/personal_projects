@@ -22,5 +22,11 @@ En este estudio vamos a analizar una serie de proyectos Kikcstarter para tratar 
 ![texto](https://github.com/marinapm90/personal_projects/blob/master/Imagenes%20Readme/decima.png)
 ![texto](https://github.com/marinapm90/personal_projects/blob/master/Imagenes%20Readme/undecima.png)
 
+El proyecto que más a recaudado es un juego
+
+![texto](https://cdn.crhoy.net/wp-content/uploads/2013/06/ouya.jpg)
+
+![texto](http://www.quickmeme.com/img/58/5860d2801dceeb9de71bc2566fe0dfb305d65ff294864e72ed0cf1c3255a4752.jpg)
+
 
 
